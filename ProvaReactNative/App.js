@@ -12,7 +12,6 @@ export default function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen name="Fale conosco!" component={Mensagem}/>
         <Stack.Screen name="Login" component={Login}/>
         <Stack.Screen name="Estoque" component={Drawer}/>
       </Stack.Navigator>
@@ -20,13 +19,14 @@ export default function App() {
   );
 }
 
-export function Drawer({navigation}){
+export function Drawer({}){
   const Drawer = createDrawerNavigator();
 
   return (
     <NavigationContainer>
       <Drawer.Navigator>
         <Drawer.Screen name="Estoque" component={Estoque}/>
+        <Drawer.Screen name="Fale conosco!" component={Mensagem}/>
       </Drawer.Navigator>
     </NavigationContainer>
   )

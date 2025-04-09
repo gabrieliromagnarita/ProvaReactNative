@@ -11,7 +11,7 @@ export default function Login() {
         <View style={styles.middle}>
             <TextInput style={styles.input} placeholder='E-mail' onChangeText={setEmail} defaultValue={email}></TextInput>
             <TextInput style={styles.input} placeholder='Senha' onChangeText={setSenha} defaultValue={senha}></TextInput>
-            <Button onPress={() => Alert.alert('Simple Button pressed')} color="#f194ff"title="Entrar"/>
+            <Button onPress={() => Alert.alert('Simple Button pressed')} color="#f194ff" title="Entrar"/>
         </View>
         <View style={styles.bottom}></View>
     </View>

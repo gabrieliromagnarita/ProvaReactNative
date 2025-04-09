@@ -14,8 +14,9 @@ export default function Mensagem() {
         <View style={styles.middle}>
             <TextInput style={styles.input} placeholder='Nome' onChangeText={setNome} defaultValue={nome}/>
             <TextInput style={styles.input} placeholder='E-mail' onChangeText={setEmail} defaultValue={email}/>
-            <TextInput style={styles.input} placeholder='mensagem' onChangeText={setMsg} defaultValue={msg}/>
-            <Button onPress={() => Alert.alert('Simple Button pressed')} color="#f194ff"title="Entrar"/>
+            <TextInput style={styles.input} placeholder='Mensagem' onChangeText={setMsg} defaultValue={msg}/>
+            <Text style={styles.texto}>{nome} ({email}) diz: {msg}</Text>
+            <Button onPress={() => Alert.alert('Simple Button pressed')} color="#f194ff"title="Enviar"/>
         </View>
         <View style={styles.bottom}></View>
     </View>
@@ -29,7 +30,9 @@ const styles = StyleSheet.create({
   },
   top:{
     flex: 1,
-    justifyContent: 'center'
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: "#f194ff"
   },
   middle:{
     flex: 1,
@@ -37,7 +40,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-around',
   },
   bottom:{
-    flex: 2,
+    flex: 1,
   },
   input:{
     fontSize: 30,
@@ -45,10 +48,11 @@ const styles = StyleSheet.create({
     borderWidth: 2,
   },
   texto:{
-    fontSize: 80,
-    textAlign: 'center',
+    fontSize: 20,
+    textAlign: 'justify',
   },
   foto:{
-    flex: 1,
+    height: 100,
+    width: 300,
   }
 });
