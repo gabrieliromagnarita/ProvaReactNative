@@ -1,42 +1,33 @@
-/* import { StyleSheet, Text, View } from 'react-native'; */
-
-/* import { NavigationContainer } from '@react-navigation/native';
+import { NavigationContainer } from '@react-navigation/native';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
-import {Login} from './screens/login'; */
+import Login from './screens/login.js';
+import Estoque from './screens/estoque.js';
+import Mensagem from './screens/comunique.js';
 
-/* export default function App() {
-  return (
-
-  );
-} */
-
-import { StyleSheet, Text, View, TextInput } from 'react-native';
-import { useState } from 'react';
-  
 export default function App() {
-  const [email, setEmail] = useState("");
-  const [senha, setSenha] = useState("");
-  
+  const Stack = createNativeStackNavigator();
+
   return (
-    <View style={styles.container}>
-        <View style={styles.top}></View>
-        <View style={styles.middle}>
-            <TextInput style={styles.input} placeholder='E-mail' onChangeText={setEmail} defaultValue={email}></TextInput>
-            <TextInput style={styles.input} placeholder='Senha' onChangeText={setSenha} defaultValue={senha}></TextInput>
-            <button></button>
-        </View>
-        <View style={styles.bottom}></View>
-    </View>
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen name="Fale conosco!" component={Mensagem}/>
+        <Stack.Screen name="Login" component={Login}/>
+        <Stack.Screen name="Estoque" component={Drawer}/>
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
-  
-const styles = StyleSheet.create({
-   container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+
+export function Drawer({navigation}){
+  const Drawer = createDrawerNavigator();
+
+  return (
+    <NavigationContainer>
+      <Drawer.Navigator>
+        <Drawer.Screen name="Estoque" component={Estoque}/>
+      </Drawer.Navigator>
+    </NavigationContainer>
+  )
+}

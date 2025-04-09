@@ -1,16 +1,20 @@
-import { StyleSheet, Text, View, TextInput, Button } from 'react-native';
+import { StyleSheet, Text, View, TextInput, Button, Image } from 'react-native';
 import { useState } from 'react';
   
-export default function Login() {
+export default function Mensagem() {
   const [email, setEmail] = useState("");
-  const [senha, setSenha] = useState("");
+  const [nome, setNome] = useState("");
+  const [msg, setMsg] = useState("");
   
   return (
     <View style={styles.container}>
-        <View style={styles.top}><Text style={styles.texto}>Login!!</Text></View>
+        <View style={styles.top}>
+            <Image style={styles.foto} source={require('../assets/header.jpg')}/>
+        </View>
         <View style={styles.middle}>
-            <TextInput style={styles.input} placeholder='E-mail' onChangeText={setEmail} defaultValue={email}></TextInput>
-            <TextInput style={styles.input} placeholder='Senha' onChangeText={setSenha} defaultValue={senha}></TextInput>
+            <TextInput style={styles.input} placeholder='Nome' onChangeText={setNome} defaultValue={nome}/>
+            <TextInput style={styles.input} placeholder='E-mail' onChangeText={setEmail} defaultValue={email}/>
+            <TextInput style={styles.input} placeholder='mensagem' onChangeText={setMsg} defaultValue={msg}/>
             <Button onPress={() => Alert.alert('Simple Button pressed')} color="#f194ff"title="Entrar"/>
         </View>
         <View style={styles.bottom}></View>
@@ -24,7 +28,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
   },
   top:{
-    flex: 2,
+    flex: 1,
     justifyContent: 'center'
   },
   middle:{
@@ -33,7 +37,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-around',
   },
   bottom:{
-    flex: 1,
+    flex: 2,
   },
   input:{
     fontSize: 30,
@@ -43,5 +47,8 @@ const styles = StyleSheet.create({
   texto:{
     fontSize: 80,
     textAlign: 'center',
+  },
+  foto:{
+    flex: 1,
   }
 });
